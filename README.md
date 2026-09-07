@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# 1Fi Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend implementation of the **1Fi Marketplace** as part of the 1Fi SDE Intern assignment.
 
-Currently, two official plugins are available:
+The Marketplace is integrated into the existing Shop experience and allows users to browse products, view product details, select variants, explore EMI plans, and proceed with a selected EMI option.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 1Fi Marketplace integrated within the Shop page
+- Responsive product listing
+- Product search
+- Product detail pages
+- Product image gallery
+- Product variant selection
+- EMI plan selection
+- EMI details including tenure, monthly amount, interest rate, and cashback
+- Continue CTA after selecting an EMI plan
+- Loading and error states
+- Responsive layout for desktop and mobile
+- Mock API/service layer for dynamic product data
+- Reusable React components
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+```text
+src/
+├── components/
+│   ├── layout/
+│   └── shop/
+│       ├── Marketplace/
+│       │   ├── MarketplaceHeader.tsx
+│       │   ├── ProductCard.tsx
+│       │   ├── ProductGrid.tsx
+│       │   └── ProductDetails/
+│       │       ├── ContinueButton.tsx
+│       │       ├── EmiPlanCard.tsx
+│       │       ├── EmiPlanList.tsx
+│       │       ├── ProductGallery.tsx
+│       │       ├── ProductInfo.tsx
+│       │       └── VariantSelector.tsx
+│       ├── ShopHeroBanner.tsx
+│       ├── ShopPlaceholder.tsx
+│       └── ShopTabs.tsx
+├── data/
+│   └── marketplaceData.ts
+├── pages/
+│   ├── MarketplacePage.tsx
+│   ├── ProductDetailsPage.tsx
+│   ├── ShopPage.tsx
+│   └── GeneralPage.tsx
+├── services/
+│   └── marketplaceApi.tsx
+├── types/
+│   └── marketplace.ts
+├── App.tsx
+├── index.css
+└── main.tsx
